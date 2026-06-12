@@ -3,108 +3,130 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BingeStack.Views.Prijava"
              Title="Prijava">
-    
-<ContentPage.Background>
+
+    <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-
-            <GradientStop Color="#dd7959" Offset="0.0" />
-            <GradientStop Color="#ecc2ac" Offset="1.0" />
-
+            <GradientStop Color="#4A90E2" Offset="0.0" />
+            <GradientStop Color="#D6EAF8" Offset="1.0" />
         </LinearGradientBrush>
-</ContentPage.Background>
+    </ContentPage.Background>
 
     <ScrollView>
-        <VerticalStackLayout VerticalOptions="Center" Spacing="18" Padding="20">
-            <Image Source="logo_pocetna.png" 
-                MaximumHeightRequest="100" 
-                MaximumWidthRequest="100"/>
 
-            <Label Text="Prijava" 
-                HorizontalTextAlignment="Center"
-                FontSize="20"
-                FontAttributes="Bold"
-                FontFamily="StilTekst1"/>
+        <VerticalStackLayout VerticalOptions="Center"
+                             Spacing="18"
+                             Padding="20">
 
-            <Entry Placeholder="E-mail" 
-                   x:Name="emailPolje"
-                   FontSize="10"
-                   TextColor="Black"
-                   FontAttributes="Bold"
-                   PlaceholderColor="DimGrey"/>
+            <Image Source="logo_pocetna.png"
+                   MaximumHeightRequest="100"
+                   MaximumWidthRequest="100"/>
 
-            <Grid ColumnDefinitions="*,40">
+            <Label Text="Dobrodošli!"
+                           HorizontalTextAlignment="Center"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           FontFamily="StilTekst1"/>
 
-                <Entry Placeholder="Zaporka"
-                   x:Name="zaporkaPolje"
-            FontSize="10"
+            <Border BackgroundColor="#80FFFFFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 25"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="18">
+
+                    <Entry Placeholder="E-mail"
+                           x:Name="emailPolje"
+                           FontSize="10"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           PlaceholderColor="DimGrey"/>
+
+                    <Grid ColumnDefinitions="*,40">
+
+                        <Entry Placeholder="Zaporka"
+                               x:Name="zaporkaPolje"
+                               FontSize="10"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               IsPassword="True"
+                               PlaceholderColor="DimGrey"
+                               Grid.Column="0"/>
+
+                        <ImageButton Source="oko_otvoreno.png"
+                                     BackgroundColor="Transparent"
+                                     Grid.Column="1"
+                                     Clicked="okoOtvoreno_Clicked"/>
+
+                    </Grid>
+
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+
+                        <CheckBox x:Name="zapamtiMeCheckBox"
+                                  Color="Black"
+                                  VerticalOptions="Start"
+                                  Margin="0,-20,0,0"
+                                  Grid.Column="0"/>
+
+                        <Label Text="Zapamti me"
+                               FontSize="10"
+                               FontFamily="StilTekst"
+                               VerticalOptions="Start"
+                               Margin="0,-3,0,0"
+                               Grid.Column="1"/>
+
+                        <Label Text="Zaboravili ste zaporku?"
+                               FontSize="10"
+                               TextDecorations="Underline"
+                               HorizontalOptions="End"
+                               Grid.Column="2">
+
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ZaboravljenaZaporka_Tapped"/>
+                            </Label.GestureRecognizers>
+
+                        </Label>
+
+                    </Grid>
+
+                    <Button Text="PRIJAVA"
+                            BackgroundColor="#4A90E2"
+                            WidthRequest="100"
+                            TextColor="Black"
+                            FontSize="13"
+                            FontFamily="StilTekst1"
+                            CornerRadius="18"
+                            HorizontalOptions="Center"
+                            x:Name="prijavaGumb"
+                            Clicked="prijavaGumb_Clicked"/>
+
+                    <HorizontalStackLayout HorizontalOptions="Center"
+                       Spacing="3">
+
+                        <Label Text="Nemaš račun?"
+           FontSize="11"
            TextColor="Black"
-           FontAttributes="Bold"
-           IsPassword="True"
-           PlaceholderColor="DimGrey"
-           Grid.Column="0"/>
+           FontFamily="StilTekst1"/>
 
-            <ImageButton Source="oko_otvoreno.png"
-             BackgroundColor="Transparent"
-             Grid.Column="1"
-             Clicked="okoOtvoreno_Clicked"/>
-            </Grid>
+                        <Label Text="Registracija"
+           TextColor="Black"
+           FontSize="11"
+           FontFamily="StilTekst1"
+           TextDecorations="Underline">
 
-            <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="registracijaGumb_Clicked"/>
+                            </Label.GestureRecognizers>
 
-                <CheckBox x:Name="zapamtiMeCheckBox"
-              Color="Black"
-              VerticalOptions="Start"
-              Margin="0,-20,0,0"
-              Grid.Column="0"/>
+                        </Label>
 
-                <Label Text="Zapamti me"
-           FontSize="10"
-           FontFamily="StilTekst"
-           VerticalOptions="Start"
-           Margin="0,-3,0,0"
-           Grid.Column="1"/>
+                    </HorizontalStackLayout>
 
-                <Label Text="Zaboravili ste zaporku?"
-       FontSize="10"
-       TextDecorations="Underline"
-       HorizontalOptions="End"
-                       Grid.Column="2">
+                </VerticalStackLayout>
 
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ZaboravljenaZaporka_Tapped"/>
-                    </Label.GestureRecognizers>
-
-                </Label>
-
-            </Grid>
-
-            <Button Text="PRIJAVA"
-                 BackgroundColor="#dd7959"
-                 WidthRequest="100"                                    
-                 TextColor="Black"
-                 FontSize="13"
-                 FontFamily="StilTekst1"
-                 Margin="0,10,0,-15"
-                 MinimumHeightRequest="1"
-                 CornerRadius="18"
-                 x:Name="prijavaGumb"
-                 Clicked="prijavaGumb_Clicked"/>
-            
-            <Label Text="Registracija"
-                   BackgroundColor="Transparent"
-                   TextColor="Black"
-                   FontSize="11"
-                   WidthRequest="120"
-                   FontFamily="StilTekst1"
-                   MinimumHeightRequest="1"
-                   HorizontalTextAlignment="Center"
-                   TextDecorations="Underline"
-                   Margin="0,10,0,0">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="registracijaGumb_Clicked" />
-                </Label.GestureRecognizers>
-            </Label>
+            </Border>
 
         </VerticalStackLayout>
+
     </ScrollView>
+
 </ContentPage>

@@ -2,39 +2,249 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BingeStack.Views.Glavna"
-             Title="Početna">
+             x:Class="BingeStack.Views.Glavna">
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-
-            <GradientStop Color="#dd7959" Offset="0.0"/>
-            <GradientStop Color="#ecc2ac" Offset="1.0"/>
-
+            <GradientStop Color="#4A90E2" Offset="0.0"/>
+            <GradientStop Color="#D6EAF8" Offset="1.0"/>
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <ScrollView>
+    <Grid RowDefinitions="Auto,*,Auto">
 
-        <VerticalStackLayout Padding="20"
-                             Spacing="20">
+        <Border x:Name="TopNavDesktop"
+                Grid.Row="0"
+                BackgroundColor="White"
+                Padding="20,10"
+                IsVisible="False">
 
-            <Label Text="BingeStack"
-                   FontSize="28"
-                   FontAttributes="Bold"
-                   FontFamily="StilTekst1"
-                   TextColor="Black"/>
+            <Grid ColumnDefinitions="*,Auto,Auto,Auto"
+                  ColumnSpacing="50">
 
-            <SearchBar Placeholder="Pretraži filmove, knjige ili serije..."
-                       PlaceholderColor="DimGrey"
-                       WidthRequest="500"
-                       TextColor="Black"
-                       FontFamily="StilTekst"
-                       BackgroundColor="White"
-                       FontSize="10"
-                       CancelButtonColor="Black"/>
-        </VerticalStackLayout>
+                <Label Text="BingeStack"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       TextColor="Black"/>
 
-    </ScrollView>
+                <HorizontalStackLayout Grid.Column="1"
+                                        Spacing="8"
+                                        Padding="10">
+
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Kucica_Clicked"/>
+                    </HorizontalStackLayout.GestureRecognizers>
+
+                    <Image Source="kucica.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           Aspect="AspectFit"/>
+
+                    <Label Text="Početna"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Column="2"
+                                        Spacing="8"
+                                        Padding="10">
+
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Plus_Clicked"/>
+                    </HorizontalStackLayout.GestureRecognizers>
+
+                    <Image Source="plus.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           Aspect="AspectFit"/>
+
+                    <Label Text="Dodaj"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Column="3"
+                                        Spacing="8"
+                                        Padding="10">
+
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Profil_Clicked"/>
+                    </HorizontalStackLayout.GestureRecognizers>
+
+                    <Image Source="profil.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           Aspect="AspectFit"/>
+
+                    <Label Text="Profil"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+            </Grid>
+        </Border>
+
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <SearchBar Placeholder="Pretraži filmove, knjige ili serije..."
+                           BackgroundColor="White"
+                           TextColor="Black"/>
+
+                <Border BackgroundColor="#80FFFFFF"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="15">
+
+                    <VerticalStackLayout Spacing="5">
+
+                        <Label Text="Dobrodošli u BingeStack!"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                        <Label Text="Prati filmove, knjige i serije na jednom mjestu."
+                               FontSize="12"/>
+
+                        <Label x:Name="nemaSadrzaja"
+       Text="📭 Još nema dodanog sadržaja."
+       FontSize="16"
+       HorizontalOptions="Center"
+       TextColor="Gray"/>
+                        <CollectionView x:Name="listaSadrzaja"
+                IsVisible="False">
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+
+                                    <SwipeView>
+
+                                        <SwipeView.RightItems>
+                                            <SwipeItems>
+                                                <SwipeItem Text="🗑 Obriši"
+                                   BackgroundColor="Red"
+                                   Invoked="ObrisiSadrzaj"/>
+                                            </SwipeItems>
+                                        </SwipeView.RightItems>
+
+                                        <Border BackgroundColor="#80FFFFFF"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20"
+                        Margin="0,5">
+
+                                            <!-- TAP IDE NA BORDER -->
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="SadrzajTapped"/>
+                                            </Border.GestureRecognizers>
+
+                                            <VerticalStackLayout Padding="15">
+
+                                                <Label Text="{Binding Naziv}"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+
+                                                <Label Text="{Binding Vrsta}"/>
+                                                <Label Text="{Binding Status}"/>
+
+                                            </VerticalStackLayout>
+
+                                        </Border>
+
+                                    </SwipeView>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+        <Border x:Name="BottomNav"
+                Grid.Row="2"
+                BackgroundColor="White"
+                Padding="20,10"
+                HeightRequest="60"
+                IsVisible="False">
+
+            <Grid ColumnDefinitions="*,*,*">
+
+                <Image Source="kucica.png"
+                       HeightRequest="20"
+                       WidthRequest="20"
+                       Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Kucica_Clicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Column="1"
+                       Source="plus.png"
+                       HeightRequest="20"
+                       WidthRequest="20"
+                       Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Plus_Clicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Column="2"
+                       Source="profil.png"
+                       HeightRequest="20"
+                       WidthRequest="20"
+                       Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Profil_Clicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </Grid>
+
+        </Border>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <VisualStateGroup>
+
+                <VisualState x:Name="Mobile">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter TargetName="TopNavDesktop"
+                                Property="IsVisible"
+                                Value="False"/>
+
+                        <Setter TargetName="BottomNav"
+                                Property="IsVisible"
+                                Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"/>
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter TargetName="TopNavDesktop"
+                                Property="IsVisible"
+                                Value="True"/>
+
+                        <Setter TargetName="BottomNav"
+                                Property="IsVisible"
+                                Value="False"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+
+        </VisualStateManager.VisualStateGroups>
+
+    </Grid>
 
 </ContentPage>

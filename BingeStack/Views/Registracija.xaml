@@ -6,134 +6,153 @@
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-
-            <GradientStop Color="#dd7959" Offset="0.0" />
-            <GradientStop Color="#ecc2ac" Offset="1.0" />
-
+            <GradientStop Color="#4A90E2" Offset="0.0" />
+            <GradientStop Color="#D6EAF8" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
 
     <ScrollView>
-        <VerticalStackLayout VerticalOptions="Center" Spacing="18" Padding="20">
-            <Image Source="logo_pocetna.png" 
-                MaximumHeightRequest="100" 
-                MaximumWidthRequest="100"/>
 
-            <Label Text="Stvori novi račun" 
-                HorizontalTextAlignment="Center"
-                FontSize="20"
-                FontAttributes="Bold"
-                FontFamily="StilTekst1"/>
+        <VerticalStackLayout VerticalOptions="Center"
+                             Spacing="18"
+                             Padding="20">
 
-            <Entry Placeholder="Ime i prezime" 
-                x:Name="imPrezPolje"
-                FontSize="10"
-                TextColor="Black"
-                FontAttributes="Bold"
-                PlaceholderColor="DimGrey"/>
+            <Image Source="logo_pocetna.png"
+                   MaximumHeightRequest="100"
+                   MaximumWidthRequest="100"/>
 
-            <Entry Placeholder="E-mail" 
-                   x:Name="emailPolje"
-                   Keyboard="Email"
-                   FontSize="10"
-                   TextColor="Black"
-                   FontAttributes="Bold"
-                   PlaceholderColor="DimGrey"/>
+            <Label Text="Stvori novi račun"
+                           HorizontalTextAlignment="Center"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           FontFamily="StilTekst1"/>
 
-            <Grid ColumnDefinitions="*,40">
+            <Border BackgroundColor="#80FFFFFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 25"
+                    Padding="20">
 
-                <Entry Placeholder="Zaporka"
-           x:Name="zaporkaPolje"
-           FontSize="10"
-           TextColor="Black"
-           FontAttributes="Bold"
-           IsPassword="True"
-           PlaceholderColor="DimGrey"
-           Grid.Column="0"/>
+                <VerticalStackLayout Spacing="18">
 
-                <ImageButton Source="oko_otvoreno.png"
-                 BackgroundColor="Transparent"
-                 WidthRequest="18"
-                 HeightRequest="18"
-                 Padding="0"
-                 Margin="0"
-                 Aspect="AspectFit"
-                 HorizontalOptions="Center"
-                 VerticalOptions="Center"
-                 Grid.Column="1"
-                 Clicked="okoOtvoreno_Clicked"/>
+                    <Entry Placeholder="Ime i prezime"
+                           x:Name="imPrezPolje"
+                           FontSize="10"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           PlaceholderColor="DimGrey"/>
 
-            </Grid>
+                    <Entry Placeholder="E-mail"
+                           x:Name="emailPolje"
+                           Keyboard="Email"
+                           FontSize="10"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           PlaceholderColor="DimGrey"/>
 
-            <Grid ColumnDefinitions="*,40">
+                    <Grid ColumnDefinitions="*,40">
 
-                <Entry Placeholder="Potvrdite zaporku"
-           x:Name="potvrdiZaporkaPolje"
-           FontSize="10"
-           TextColor="Black"
-           FontAttributes="Bold"
-           IsPassword="True"
-           PlaceholderColor="DimGrey"
-           Grid.Column="0"/>
+                        <Entry Placeholder="Zaporka"
+                               x:Name="zaporkaPolje"
+                               FontSize="10"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               IsPassword="True"
+                               PlaceholderColor="DimGrey"
+                               Grid.Column="0"/>
 
-                <ImageButton Source="oko_otvoreno.png"
-                 BackgroundColor="Transparent"
-                 WidthRequest="18"
-                 HeightRequest="18"
-                 Padding="0"
-                 Margin="0"
-                 Aspect="AspectFit"
-                 HorizontalOptions="Center"
-                 VerticalOptions="Center"
-                 Grid.Column="1"
-                 Clicked="okoOtvoreno2_Clicked"/>
+                        <ImageButton Source="oko_otvoreno.png"
+                                     BackgroundColor="Transparent"
+                                     WidthRequest="18"
+                                     HeightRequest="18"
+                                     Padding="0"
+                                     Margin="0"
+                                     Aspect="AspectFit"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Grid.Column="1"
+                                     Clicked="okoOtvoreno_Clicked"/>
 
-            </Grid>
+                    </Grid>
 
-            <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Grid ColumnDefinitions="*,40">
 
-                <CheckBox x:Name="uvjetiCheckBox"
-       Color="Black"
-       VerticalOptions="Start"
-       Margin="0,-20,0,0"
-       Grid.Column="0"/>
+                        <Entry Placeholder="Potvrdite zaporku"
+                               x:Name="potvrdiZaporkaPolje"
+                               FontSize="10"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               IsPassword="True"
+                               PlaceholderColor="DimGrey"
+                               Grid.Column="0"/>
 
-                <Label Text="Prihvaćam uvjete korištenja i pravila privatnosti."
-    FontSize="10"
-    FontFamily="StilTekst"
-    VerticalOptions="Start"
-    Margin="0,-3,0,0"
-    Grid.Column="1"/>
-            </Grid>
+                        <ImageButton Source="oko_otvoreno.png"
+                                     BackgroundColor="Transparent"
+                                     WidthRequest="18"
+                                     HeightRequest="18"
+                                     Padding="0"
+                                     Margin="0"
+                                     Aspect="AspectFit"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Grid.Column="1"
+                                     Clicked="okoOtvoreno2_Clicked"/>
 
-            <Button Text="Kreiraj račun"
-                 BackgroundColor="#dd7959"
-                 WidthRequest="120"                                    
-                 TextColor="Black"
-                 FontSize="13"
-                 FontFamily="StilTekst1"
-                Margin="0,10,0,-15"
-                 MinimumHeightRequest="1"
-                 CornerRadius="18"
-                 x:Name="registracijaGumb"
-                 Clicked="registracijaGumb_Clicked"/>
+                    </Grid>
 
-            <Label Text="Prijava"
-                   BackgroundColor="Transparent"
-                   TextColor="Black"
-                   FontSize="11"
-                   WidthRequest="120"
-                   FontFamily="StilTekst1"
-                   MinimumHeightRequest="1"
-                   HorizontalTextAlignment="Center"
-                   TextDecorations="Underline"
-                   Margin="0,10,0,0">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="prijavaGumb_Clicked" />
-                </Label.GestureRecognizers>
-            </Label>
+                    <Grid ColumnDefinitions="Auto,*">
 
+                        <CheckBox x:Name="uvjetiCheckBox"
+                                  Color="Black"
+                                  VerticalOptions="Start"
+                                  Grid.Column="0"/>
+
+                        <Label Text="Prihvaćam uvjete korištenja i pravila privatnosti."
+                               FontSize="10"
+                               FontFamily="StilTekst"
+                               VerticalOptions="Center"
+                               Grid.Column="1"/>
+
+                    </Grid>
+
+                    <Button Text="Kreiraj račun"
+                            BackgroundColor="#4A90E2"
+                            WidthRequest="120"
+                            TextColor="Black"
+                            FontSize="13"
+                            FontFamily="StilTekst1"
+                            CornerRadius="18"
+                            HorizontalOptions="Center"
+                            x:Name="registracijaGumb"
+                            Clicked="registracijaGumb_Clicked"/>
+
+                    <HorizontalStackLayout HorizontalOptions="Center"
+                                           Spacing="3">
+
+                        <Label Text="Imaš račun?"
+                               FontSize="11"
+                               TextColor="Black"
+                               FontFamily="StilTekst1"/>
+
+                        <Label Text="Prijava"
+                               TextColor="Black"
+                               FontSize="11"
+                               FontFamily="StilTekst1"
+                               TextDecorations="Underline">
+
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="prijavaGumb_Clicked"/>
+                            </Label.GestureRecognizers>
+
+                        </Label>
+
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
 
         </VerticalStackLayout>
+
     </ScrollView>
+
 </ContentPage>

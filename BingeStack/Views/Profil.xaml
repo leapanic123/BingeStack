@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BingeStack.Views.Profil"
+             Title="Profil">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#4A90E2" Offset="0.0"/>
+            <GradientStop Color="#D6EAF8" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20"
+                             Spacing="18">
+
+            <Frame HeightRequest="130"
+                   WidthRequest="130"
+                   CornerRadius="65"
+                   HorizontalOptions="Center"
+                   HasShadow="False"
+                   BorderColor="White"
+                   BackgroundColor="White">
+
+                <Image x:Name="profilnaSlika"
+                       Source="profil.png"
+                       Aspect="AspectFill"/>
+            </Frame>
+
+            <Label x:Name="ime"
+                   Text="Korisnik"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+
+            <Label x:Name="email"
+                   Text="email@email.com"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+
+            <Frame CornerRadius="20"
+                   BackgroundColor="#80FFFFFF"
+                   HasShadow="False">
+
+                <Grid ColumnDefinitions="*,*,*"
+                      Padding="15">
+
+                    <VerticalStackLayout>
+                        <Label x:Name="filmovi"
+                               Text="0"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+
+                        <Label Text="Filmovi"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label x:Name="serije"
+                               Text="0"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+
+                        <Label Text="Serije"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="2">
+                        <Label x:Name="knjige"
+                               Text="0"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+
+                        <Label Text="Knjige"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Frame>
+
+            <Frame CornerRadius="20"
+                   BackgroundColor="#80FFFFFF"
+                   HasShadow="False">
+
+                <VerticalStackLayout Padding="15"
+                                     Spacing="8">
+
+                    <Label Text="Aktivnosti"
+                           FontSize="18"
+                           FontAttributes="Bold"/>
+
+                    <Label x:Name="filmAktivnost"
+                           Text="🎬 Nema dodanih filmova"/>
+
+                    <Label x:Name="serijaAktivnost"
+                           Text="📺 Nema dodanih serija"/>
+
+                    <Label x:Name="knjigaAktivnost"
+                           Text="📚 Nema dodanih knjiga"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <Button Text="Uredi profil"
+                    BackgroundColor="#D6EAF8"
+                    TextColor="#4A90E2"
+                    CornerRadius="15"
+                    Clicked="UrediProfil_Clicked"/>
+
+            <Button Text="Odjava"
+                    BackgroundColor="#4A90E2"
+                    TextColor="White"
+                    CornerRadius="15"
+                    Clicked="Odjava_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

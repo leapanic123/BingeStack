@@ -4,31 +4,51 @@ namespace BingeStack.Views;
 
 public partial class Prijava : ContentPage
 {
-	public Prijava()
-	{
-		InitializeComponent();
-	}
+    public Prijava()
+    {
+        InitializeComponent();
+    }
+
     private async void prijavaGumb_Clicked(object sender, EventArgs e)
     {
-        var u = App.db.Table<User>().Where(x => x.Email == emailPolje.Text && x.Password == zaporkaPolje.Text).FirstOrDefault();
+        if (string.IsNullOrWhiteSpace(emailPolje.Text) ||
+            string.IsNullOrWhiteSpace(zaporkaPolje.Text))
+        {
+            await DisplayAlert("Obavijest", "Unesite email i lozinku.", "U redu");
+            return;
+        }
+
+        var email = emailPolje.Text?.Trim();
+        var pass = zaporkaPolje.Text?.Trim();
+
+        var u = App.db.Table<User>()
+            .FirstOrDefault(x =>
+                x.Email == email &&
+                x.Password == pass);
+
         if (u != null)
         {
+            App.TrenutniKorisnik = u;
+
             await DisplayAlert("Obavijest", "Uspješna prijava.", "Nastavi");
-            App.Current.MainPage = new NavigationPage(new Glavna());
+
+            Application.Current.MainPage = new NavigationPage(new Glavna());
         }
         else
         {
-            await DisplayAlert("Obavijest", "Pogrešan email ili lozinka. Molimo pokušajte ponovno.", "U redu");
+            await DisplayAlert("Obavijest",
+                "Pogrešan email ili lozinka. Molimo pokušajte ponovno.",
+                "U redu");
         }
-
     }
 
     private void registracijaGumb_Clicked(object sender, EventArgs e)
     {
-        App.Current.MainPage = new Registracija();
+        Application.Current.MainPage = new Registracija();
     }
 
     private bool isPasswordVisible = false;
+
     private void okoOtvoreno_Clicked(object sender, EventArgs e)
     {
         isPasswordVisible = !isPasswordVisible;
@@ -45,9 +65,8 @@ public partial class Prijava : ContentPage
     private async void ZaboravljenaZaporka_Tapped(object sender, TappedEventArgs e)
     {
         await DisplayAlert(
-       "Obavijest",
-       "Poslan Vam je mail za ponovno postavljanje zaporke.",
-       "U redu");
+            "Obavijest",
+            "Poslan Vam je mail za ponovno postavljanje zaporke.",
+            "U redu");
     }
-
 }

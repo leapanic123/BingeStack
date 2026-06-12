@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BingeStack.Views.DodajSadrzaj"
+             Title="DodajSadrzaj">
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20"
+                         Spacing="15">
+
+            <Picker x:Name="vrsta"
+                Title="Vrsta sadržaja"
+                SelectedIndexChanged="VrstaPromijenjena">
+
+                <Picker.Items>
+                    <x:String>Film</x:String>
+                    <x:String>Serija</x:String>
+                    <x:String>Knjiga</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <Entry x:Name="naziv"
+               Placeholder="Naziv"/>
+
+            <Picker x:Name="status"
+                Title="Status"
+                SelectedIndexChanged="StatusPromijenjen"/>
+
+            <VerticalStackLayout x:Name="ocjenaSekcija"
+                             IsVisible="False">
+
+                <Label Text="Ocjena"/>
+
+                <Picker x:Name="ocjena">
+
+                    <Picker.Items>
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                        <x:String>5</x:String>
+                        <x:String>6</x:String>
+                        <x:String>7</x:String>
+                        <x:String>8</x:String>
+                        <x:String>9</x:String>
+                        <x:String>10</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+            </VerticalStackLayout>
+
+            <Editor x:Name="osvrt"
+                Placeholder="Napiši osvrt..."
+                AutoSize="TextChanges"
+                IsVisible="False"/>
+
+            <Button Text="Spremi"
+                Clicked="Spremi_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
