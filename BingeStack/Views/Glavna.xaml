@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BingeStack.Views.Glavna"
+             Title="Početna">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+
+            <GradientStop Color="#dd7959" Offset="0.0"/>
+            <GradientStop Color="#ecc2ac" Offset="1.0"/>
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20"
+                             Spacing="20">
+
+            <Label Text="BingeStack"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   FontFamily="StilTekst1"
+                   TextColor="Black"/>
+
+            <SearchBar Placeholder="Pretraži filmove, knjige ili serije..."
+                       PlaceholderColor="DimGrey"
+                       WidthRequest="500"
+                       TextColor="Black"
+                       FontFamily="StilTekst"
+                       BackgroundColor="White"
+                       FontSize="10"
+                       CancelButtonColor="Black"/>
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

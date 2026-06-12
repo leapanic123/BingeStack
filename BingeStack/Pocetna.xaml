@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BingeStack.Pocetna"
+             Title="Pocetna">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+
+            <GradientStop Color="#dd7959" Offset="0.0" />
+            <GradientStop Color="#ecc2ac" Offset="1.0" />
+
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" Spacing="12" Padding="20">
+            <Image Source="logo_pocetna.png" 
+                   MaximumHeightRequest="100" 
+                   MaximumWidthRequest="100"/>
+            
+            <Label Text="Binge Stack" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   FontFamily="StilTekst1"/>
+            
+            <Label Text="Prati. Ocijeni. Uživaj." 
+                   HorizontalTextAlignment="Center"
+                   FontSize="10"
+                   FontFamily="StilTekst1"/>
+            
+            <Button Text="ZAPOČNI"
+                    BackgroundColor="#dd7959"
+                    WidthRequest="100"                                    
+                    TextColor="Black"
+                    FontSize="13"
+                    FontFamily="StilTekst1"
+                    Margin="0,150,0,0"
+                    MinimumHeightRequest="1"
+                    CornerRadius="18"
+                    x:Name="zapocniGumb"
+                    Clicked="zapocniGumb_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
