@@ -18,14 +18,14 @@
                              Padding="20">
 
             <Image Source="logo_pocetna.png"
-                   MaximumHeightRequest="100"
-                   MaximumWidthRequest="100"/>
+                   MaximumHeightRequest="150"
+                   MaximumWidthRequest="150"/>
 
             <Label Text="Stvori novi račun"
                            HorizontalTextAlignment="Center"
                            FontSize="20"
                            FontAttributes="Bold"
-                           FontFamily="StilTekst1"/>
+                           FontFamily="TimesNewRoman"/>
 
             <Border BackgroundColor="#80FFFFFF"
                     StrokeThickness="0"
@@ -108,7 +108,7 @@
 
                         <Label Text="Prihvaćam uvjete korištenja i pravila privatnosti."
                                FontSize="10"
-                               FontFamily="StilTekst"
+                               FontFamily="TimesNewRoman"
                                VerticalOptions="Center"
                                Grid.Column="1"/>
 
@@ -119,7 +119,7 @@
                             WidthRequest="120"
                             TextColor="Black"
                             FontSize="13"
-                            FontFamily="StilTekst1"
+                            FontFamily="TimesNewRoman"
                             CornerRadius="18"
                             HorizontalOptions="Center"
                             x:Name="registracijaGumb"
@@ -131,12 +131,12 @@
                         <Label Text="Imaš račun?"
                                FontSize="11"
                                TextColor="Black"
-                               FontFamily="StilTekst1"/>
+                               FontFamily="TimesNewRoman"/>
 
                         <Label Text="Prijava"
                                TextColor="Black"
                                FontSize="11"
-                               FontFamily="StilTekst1"
+                               FontFamily="TimesNewRoman"
                                TextDecorations="Underline">
 
                             <Label.GestureRecognizers>

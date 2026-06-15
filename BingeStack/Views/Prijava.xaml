@@ -18,14 +18,14 @@
                              Padding="20">
 
             <Image Source="logo_pocetna.png"
-                   MaximumHeightRequest="100"
-                   MaximumWidthRequest="100"/>
+                   MaximumHeightRequest="150"
+                   MaximumWidthRequest="150"/>
 
             <Label Text="Dobrodošli!"
                            HorizontalTextAlignment="Center"
                            FontSize="20"
                            FontAttributes="Bold"
-                           FontFamily="StilTekst1"/>
+                           FontFamily="TimesNewRoman"/>
 
             <Border BackgroundColor="#80FFFFFF"
                     StrokeThickness="0"
@@ -59,32 +59,39 @@
 
                     </Grid>
 
-                    <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Grid x:Name="OpcijeGrid"
+      ColumnDefinitions="Auto,*,Auto"
+      RowDefinitions="Auto,Auto">
 
-                        <CheckBox x:Name="zapamtiMeCheckBox"
-                                  Color="Black"
-                                  VerticalOptions="Start"
-                                  Margin="0,-20,0,0"
-                                  Grid.Column="0"/>
-
-                        <Label Text="Zapamti me"
-                               FontSize="10"
-                               FontFamily="StilTekst"
-                               VerticalOptions="Start"
-                               Margin="0,-3,0,0"
-                               Grid.Column="1"/>
-
-                        <Label Text="Zaboravili ste zaporku?"
-                               FontSize="10"
-                               TextDecorations="Underline"
-                               HorizontalOptions="End"
-                               Grid.Column="2">
+                        <Label x:Name="zaboravljenaLabel"
+           Text="Zaboravili ste zaporku?"
+           FontSize="12"
+           FontFamily="TimesNewRoman"
+           TextDecorations="Underline"
+           HorizontalOptions="End"
+           Grid.Row="0"
+           Grid.Column="0"
+           Grid.ColumnSpan="3">
 
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ZaboravljenaZaporka_Tapped"/>
                             </Label.GestureRecognizers>
 
                         </Label>
+
+                        <CheckBox x:Name="zapamtiMeCheckBox"
+              Color="Black"
+              Grid.Row="0"
+              Grid.Column="0"/>
+
+                        <Label x:Name="zapamtiMeLabel"
+           Text="Zapamti me"
+           FontSize="12"
+           LineBreakMode="NoWrap"
+           FontFamily="TimesNewRoman"                    
+           VerticalOptions="Center"
+           Grid.Row="0"
+           Grid.Column="1"/>
 
                     </Grid>
 
@@ -93,7 +100,7 @@
                             WidthRequest="100"
                             TextColor="Black"
                             FontSize="13"
-                            FontFamily="StilTekst1"
+                            FontFamily="TimesNewRoman"
                             CornerRadius="18"
                             HorizontalOptions="Center"
                             x:Name="prijavaGumb"
@@ -105,12 +112,12 @@
                         <Label Text="Nemaš račun?"
            FontSize="11"
            TextColor="Black"
-           FontFamily="StilTekst1"/>
+           FontFamily="TimesNewRoman"/>
 
                         <Label Text="Registracija"
            TextColor="Black"
            FontSize="11"
-           FontFamily="StilTekst1"
+           FontFamily="TimesNewRoman"
            TextDecorations="Underline">
 
                             <Label.GestureRecognizers>

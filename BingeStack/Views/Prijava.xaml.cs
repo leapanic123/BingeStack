@@ -4,9 +4,42 @@ namespace BingeStack.Views;
 
 public partial class Prijava : ContentPage
 {
+    private bool isPasswordVisible = false;
+
     public Prijava()
     {
         InitializeComponent();
+
+        SizeChanged += Prijava_SizeChanged;
+    }
+
+    private void Prijava_SizeChanged(object sender, EventArgs e)
+    {
+        if (Width < 400)
+        {
+            Grid.SetRow(zaboravljenaLabel, 0);
+            Grid.SetColumn(zaboravljenaLabel, 0);
+            Grid.SetColumnSpan(zaboravljenaLabel, 3);
+
+            zaboravljenaLabel.HorizontalOptions = LayoutOptions.Center;
+
+            Grid.SetRow(zapamtiMeCheckBox, 1);
+            Grid.SetRow(zapamtiMeLabel, 1);
+        }
+        else
+        {
+            Grid.SetRow(zapamtiMeCheckBox, 0);
+            Grid.SetColumn(zapamtiMeCheckBox, 0);
+
+            Grid.SetRow(zapamtiMeLabel, 0);
+            Grid.SetColumn(zapamtiMeLabel, 1);
+
+            Grid.SetRow(zaboravljenaLabel, 0);
+            Grid.SetColumn(zaboravljenaLabel, 2);
+            Grid.SetColumnSpan(zaboravljenaLabel, 1);
+
+            zaboravljenaLabel.HorizontalOptions = LayoutOptions.End;
+        }
     }
 
     private async void prijavaGumb_Clicked(object sender, EventArgs e)
@@ -14,12 +47,16 @@ public partial class Prijava : ContentPage
         if (string.IsNullOrWhiteSpace(emailPolje.Text) ||
             string.IsNullOrWhiteSpace(zaporkaPolje.Text))
         {
-            await DisplayAlert("Obavijest", "Unesite email i lozinku.", "U redu");
+            await DisplayAlert(
+                "Obavijest",
+                "Unesite email i lozinku.",
+                "U redu");
+
             return;
         }
 
-        var email = emailPolje.Text?.Trim();
-        var pass = zaporkaPolje.Text?.Trim();
+        string email = emailPolje.Text.Trim();
+        string pass = zaporkaPolje.Text.Trim();
 
         var u = App.db.Table<User>()
             .FirstOrDefault(x =>
@@ -30,13 +67,13 @@ public partial class Prijava : ContentPage
         {
             App.TrenutniKorisnik = u;
 
-            await DisplayAlert("Obavijest", "Uspješna prijava.", "Nastavi");
-
-            Application.Current.MainPage = new NavigationPage(new Glavna());
+            Application.Current.MainPage =
+                new NavigationPage(new Glavna());
         }
         else
         {
-            await DisplayAlert("Obavijest",
+            await DisplayAlert(
+                "Obavijest",
                 "Pogrešan email ili lozinka. Molimo pokušajte ponovno.",
                 "U redu");
         }
@@ -44,10 +81,9 @@ public partial class Prijava : ContentPage
 
     private void registracijaGumb_Clicked(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new Registracija();
+        Application.Current.MainPage =
+            new Registracija();
     }
-
-    private bool isPasswordVisible = false;
 
     private void okoOtvoreno_Clicked(object sender, EventArgs e)
     {

@@ -23,5 +23,13 @@ namespace BingeStack.Models
         public string Osvrt { get; set; }
 
         public int UserId { get; set; }
+
+        public string Zvjezdice
+        {
+            get
+            {
+                return new string('★', Ocjena);
+            }
+        }
     }
 }

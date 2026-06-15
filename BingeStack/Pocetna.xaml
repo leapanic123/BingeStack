@@ -1,44 +1,86 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BingeStack.Pocetna"
              Title="Pocetna">
-    <ContentPage.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Color="#4A90E2" Offset="0.0" />
-            <GradientStop Color="#D6EAF8" Offset="1.0" />
 
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="0,1">
+            <GradientStop Color="#4A90E2"
+                          Offset="0"/>
+            <GradientStop Color="#D6EAF8"
+                          Offset="1"/>
         </LinearGradientBrush>
+        
     </ContentPage.Background>
     <ScrollView>
-        <VerticalStackLayout VerticalOptions="Center" Spacing="12" Padding="20">
-            <Image Source="logo_pocetna.png" 
-                   MaximumHeightRequest="100" 
-                   MaximumWidthRequest="100"/>
-            
-            <Label Text="Binge Stack" 
-                   HorizontalTextAlignment="Center"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   FontFamily="StilTekst1"/>
-            
-            <Label Text="Prati. Ocijeni. Uživaj." 
-                   HorizontalTextAlignment="Center"
-                   FontSize="10"
-                   FontFamily="StilTekst1"/>
-            
-            <Button Text="ZAPOČNI"
-                    BackgroundColor="#4A90E2"
-                    WidthRequest="100"                                    
-                    TextColor="Black"
-                    FontSize="13"
-                    FontFamily="StilTekst1"
-                    Margin="0,150,0,0"
-                    MinimumHeightRequest="1"
-                    CornerRadius="18"
-                    x:Name="zapocniGumb"
-                    Clicked="zapocniGumb_Clicked"/>
 
-        </VerticalStackLayout>
+        <Grid Padding="20">
+
+            <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             MaximumWidthRequest="500"
+                             Spacing="25">
+
+                <Frame BackgroundColor="#80FFFFFF"
+                   CornerRadius="25"
+                   HasShadow="False"
+                   Padding="35">
+
+                    <VerticalStackLayout Spacing="20">
+
+                        <Image Source="logo_pocetna.png"
+                           MaximumHeightRequest="150"
+                           MaximumWidthRequest="150"
+                           HorizontalOptions="Center"/>
+
+                        <Label Text="BINGE STACK"
+                           FontSize="38"
+                           FontFamily="TimesNewRoman"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           TextColor="Black"
+                           LineBreakMode="WordWrap"/>
+
+                        <BoxView HeightRequest="1"
+                             Color="#4A90E2"/>
+
+                        <Label Text="Pratite filmove, serije i knjige na jednom mjestu."
+                           HorizontalTextAlignment="Center"
+                           FontFamily="TimesNewRoman"
+                           FontSize="16"
+                           TextColor="#333"
+                           LineBreakMode="WordWrap"/>
+
+                        <Label Text="Organizirajte sadržaj koji želite pogledati ili pročitati, ocjenjujte ga i vodite vlastitu evidenciju."
+                           HorizontalTextAlignment="Center"
+                           FontFamily="TimesNewRoman"
+                           FontSize="13"
+                           TextColor="#666"
+                           LineBreakMode="WordWrap"/>
+
+                        <Button x:Name="zapocniGumb"
+                            Text="ZAPOČNI"
+                            FontFamily="TimesNewRoman"
+                            Clicked="zapocniGumb_Clicked"
+                            HeightRequest="55"
+                            MaximumWidthRequest="250"
+                            HorizontalOptions="Fill"
+                            CornerRadius="28"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            BackgroundColor="#4A90E2"
+                            TextColor="White"
+                            Margin="0,10,0,0"/>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+            </VerticalStackLayout>
+        </Grid>
     </ScrollView>
-</ContentPage>
+
+</ContentPage> 

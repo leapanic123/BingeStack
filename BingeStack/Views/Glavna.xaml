@@ -20,140 +20,284 @@
                 IsVisible="False">
 
             <Grid ColumnDefinitions="*,Auto,Auto,Auto"
-                  ColumnSpacing="50">
+                  ColumnSpacing="30">
 
-                <Label Text="BingeStack"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       TextColor="Black"/>
+                <HorizontalStackLayout Spacing="10">
 
-                <HorizontalStackLayout Grid.Column="1"
-                                        Spacing="8"
-                                        Padding="10">
-
-                    <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Kucica_Clicked"/>
-                    </HorizontalStackLayout.GestureRecognizers>
-
-                    <Image Source="kucica.png"
-                           HeightRequest="20"
-                           WidthRequest="20"
-                           Aspect="AspectFit"/>
-
-                    <Label Text="Početna"
+                    <Image Source="logo_pocetna.png"
+                           HeightRequest="50"
+                           WidthRequest="50"
                            VerticalOptions="Center"/>
+
+                    <Label Text="BingeStack"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           FontFamily="TimesNewRoman"
+                           VerticalOptions="Center"
+                           TextColor="Black"/>
+
                 </HorizontalStackLayout>
 
+                <Border Grid.Column="1"
+                        BackgroundColor="#D6EAF8"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 15">
+
+                    <HorizontalStackLayout Spacing="8"
+                                           Padding="10">
+
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Kucica_Clicked"/>
+                        </HorizontalStackLayout.GestureRecognizers>
+
+                        <Image Source="kucica.png"
+                               HeightRequest="22"
+                               WidthRequest="22"/>
+
+                        <Label Text="Početna"
+                               FontFamily="TimesNewRoman"
+                               FontAttributes="Bold"
+                               TextColor="#4A90E2"
+                               VerticalOptions="Center"/>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
                 <HorizontalStackLayout Grid.Column="2"
-                                        Spacing="8"
-                                        Padding="10">
+                                       Spacing="8"
+                                       Padding="10">
 
                     <HorizontalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Plus_Clicked"/>
                     </HorizontalStackLayout.GestureRecognizers>
 
                     <Image Source="plus.png"
-                           HeightRequest="20"
-                           WidthRequest="20"
-                           Aspect="AspectFit"/>
+                           HeightRequest="22"
+                           WidthRequest="22"
+                           Opacity="0.6"/>
 
                     <Label Text="Dodaj"
+                           FontFamily="TimesNewRoman"
+                           TextColor="Gray"
                            VerticalOptions="Center"/>
+
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout Grid.Column="3"
-                                        Spacing="8"
-                                        Padding="10">
+                                       Spacing="8"
+                                       Padding="10">
 
                     <HorizontalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Profil_Clicked"/>
                     </HorizontalStackLayout.GestureRecognizers>
 
                     <Image Source="profil.png"
-                           HeightRequest="20"
-                           WidthRequest="20"
-                           Aspect="AspectFit"/>
+                           HeightRequest="22"
+                           WidthRequest="22"
+                           Opacity="0.6"/>
 
                     <Label Text="Profil"
+                           FontFamily="TimesNewRoman"
+                           TextColor="Gray"
                            VerticalOptions="Center"/>
+
                 </HorizontalStackLayout>
 
             </Grid>
-        </Border>
 
+        </Border>
         <ScrollView Grid.Row="1">
 
-            <VerticalStackLayout Padding="20" Spacing="15">
+            <VerticalStackLayout Padding="20"
+                         Spacing="15">
 
-                <SearchBar Placeholder="Pretraži filmove, knjige ili serije..."
-                           BackgroundColor="White"
-                           TextColor="Black"/>
+                <SearchBar x:Name="pretraga"
+           Placeholder="Pretraži filmove, knjige ili serije..."
+           SearchButtonPressed="Pretraga_Clicked"
+           FontFamily="TimesNewRoman"
+           BackgroundColor="White"
+           TextColor="Black"/>
 
                 <Border BackgroundColor="#80FFFFFF"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 20"
-                        Padding="15">
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20"
+                Padding="20">
 
-                    <VerticalStackLayout Spacing="5">
+                    <VerticalStackLayout Spacing="10">
 
-                        <Label Text="Dobrodošli u BingeStack!"
-                               FontSize="18"
-                               FontAttributes="Bold"/>
-
-                        <Label Text="Prati filmove, knjige i serije na jednom mjestu."
-                               FontSize="12"/>
+                        <Label Text="Pratite filmove, knjige i serije na jednom mjestu."
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       FontFamily="TimesNewRoman"/>
 
                         <Label x:Name="nemaSadrzaja"
-       Text="📭 Još nema dodanog sadržaja."
-       FontSize="16"
-       HorizontalOptions="Center"
-       TextColor="Gray"/>
-                        <CollectionView x:Name="listaSadrzaja"
-                IsVisible="False">
+                       Text="Još nema dodanog sadržaja."
+                       FontSize="16"
+                       FontFamily="TimesNewRoman"
+                       HorizontalOptions="Center"
+                       TextColor="Gray"/>
 
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-
-                                    <SwipeView>
-
-                                        <SwipeView.RightItems>
-                                            <SwipeItems>
-                                                <SwipeItem Text="🗑 Obriši"
-                                   BackgroundColor="Red"
-                                   Invoked="ObrisiSadrzaj"/>
-                                            </SwipeItems>
-                                        </SwipeView.RightItems>
-
-                                        <Border BackgroundColor="#80FFFFFF"
+                        <Border BackgroundColor="#D6EAF8"
                         StrokeThickness="0"
-                        StrokeShape="RoundRectangle 20"
-                        Margin="0,5">
+                        StrokeShape="RoundRectangle 25"
+                        Padding="20"
+                        Margin="0,10">
 
-                                            <!-- TAP IDE NA BORDER -->
-                                            <Border.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="SadrzajTapped"/>
-                                            </Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="10">
 
-                                            <VerticalStackLayout Padding="15">
+                                <Label Text="Želim pogledati/ pročitati"
+                               FontSize="20"
+                               FontFamily="TimesNewRoman"/>
 
-                                                <Label Text="{Binding Naziv}"
-                               FontSize="18"
-                               FontAttributes="Bold"/>
+                                <CollectionView x:Name="listaZelja"
+                                        IsVisible="False">
 
-                                                <Label Text="{Binding Vrsta}"/>
-                                                <Label Text="{Binding Status}"/>
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout Orientation="Vertical"
+                                                   ItemSpacing="5"/>
+                                    </CollectionView.ItemsLayout>
 
-                                            </VerticalStackLayout>
+                                    <CollectionView.ItemTemplate>
 
-                                        </Border>
+                                        <DataTemplate>
 
-                                    </SwipeView>
+                                            <SwipeView>
 
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
+                                                <SwipeView.RightItems>
 
-                        </CollectionView>
+                                                    <SwipeItems Mode="Reveal">
+
+                                                        <SwipeItem Text="🗑️ Obriši"
+                                                           BackgroundColor="Red"
+                                                           Invoked="ObrisiSadrzaj"/>
+
+                                                    </SwipeItems>
+
+                                                </SwipeView.RightItems>
+
+                                                <Border BackgroundColor="White"
+                                                Stroke="#D0D0D0"
+                                                StrokeThickness="1"
+                                                StrokeShape="RoundRectangle 20"
+                                                Padding="15">
+
+                                                    <VerticalStackLayout>
+
+                                                        <Label Text="{Binding Naziv}"
+                                                       FontSize="18"
+                                                       FontAttributes="Bold"
+                                                       FontFamily="TimesNewRoman"/>
+
+                                                        <Label Text="{Binding Vrsta}"
+                                                       FontFamily="TimesNewRoman"/>
+
+                                                        <Label Text="{Binding Status}"
+                                                       FontFamily="TimesNewRoman"/>
+
+                                                    </VerticalStackLayout>
+
+                                                </Border>
+
+                                            </SwipeView>
+
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+
+                                </CollectionView>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                        <Border BackgroundColor="#D6EAF8"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 25"
+                        Padding="20"
+                        Margin="0,10">
+
+                            <VerticalStackLayout Spacing="10">
+
+                                <Label Text="Pogledao/ pročitao"
+                               FontSize="20"
+                               FontFamily="TimesNewRoman"/>
+
+                                <CollectionView x:Name="listaZavrseno"
+                                        IsVisible="False">
+
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout Orientation="Vertical"
+                                                   ItemSpacing="5"/>
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+
+                                        <DataTemplate>
+
+                                            <SwipeView>
+
+                                                <SwipeView.RightItems>
+
+                                                    <SwipeItems Mode="Reveal">
+
+                                                        <SwipeItem Text="🗑️ Obriši"
+                                                           BackgroundColor="Red"
+                                                           Invoked="ObrisiSadrzaj"/>
+
+                                                    </SwipeItems>
+
+                                                </SwipeView.RightItems>
+
+                                                <Border BackgroundColor="White"
+                                                Stroke="#D0D0D0"
+                                                StrokeThickness="1"
+                                                StrokeShape="RoundRectangle 20"
+                                                Padding="15">
+
+                                                    <Border.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="SadrzajTapped"/>
+                                                    </Border.GestureRecognizers>
+
+                                                    <VerticalStackLayout>
+
+                                                        <Grid ColumnDefinitions="*,Auto">
+
+                                                            <Label Text="{Binding Naziv}"
+                                                           FontSize="18"
+                                                           FontAttributes="Bold"
+                                                           FontFamily="TimesNewRoman"
+                                                           VerticalOptions="Center"/>
+
+                                                            <Label Grid.Column="1"
+                                                           Text="{Binding Zvjezdice}"
+                                                           TextColor="Goldenrod"
+                                                           FontSize="18"
+                                                           VerticalOptions="Center"/>
+
+                                                        </Grid>
+
+                                                        <Label Text="{Binding Vrsta}"
+                                                       FontFamily="TimesNewRoman"/>
+
+                                                        <Label Text="{Binding Status}"
+                                                       FontFamily="TimesNewRoman"/>
+
+                                                    </VerticalStackLayout>
+
+                                                </Border>
+
+                                            </SwipeView>
+
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+
+                                </CollectionView>
+
+                            </VerticalStackLayout>
+
+                        </Border>
 
                     </VerticalStackLayout>
 
@@ -172,33 +316,46 @@
 
             <Grid ColumnDefinitions="*,*,*">
 
-                <Image Source="kucica.png"
-                       HeightRequest="20"
-                       WidthRequest="20"
-                       Aspect="AspectFit">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Kucica_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+                <Border BackgroundColor="#D6EAF8"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 100"
+                        Padding="5"
+                        HorizontalOptions="Center">
+
+                    <Image Source="kucica.png"
+                           HeightRequest="24"
+                           WidthRequest="24">
+
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Kucica_Clicked"/>
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                </Border>
 
                 <Image Grid.Column="1"
                        Source="plus.png"
-                       HeightRequest="20"
-                       WidthRequest="20"
-                       Aspect="AspectFit">
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       Opacity="0.6">
+
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Plus_Clicked"/>
                     </Image.GestureRecognizers>
+
                 </Image>
 
                 <Image Grid.Column="2"
                        Source="profil.png"
-                       HeightRequest="20"
-                       WidthRequest="20"
-                       Aspect="AspectFit">
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       Opacity="0.6">
+
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Profil_Clicked"/>
                     </Image.GestureRecognizers>
+
                 </Image>
 
             </Grid>
@@ -210,11 +367,13 @@
             <VisualStateGroup>
 
                 <VisualState x:Name="Mobile">
+
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
+
                         <Setter TargetName="TopNavDesktop"
                                 Property="IsVisible"
                                 Value="False"/>
@@ -222,15 +381,19 @@
                         <Setter TargetName="BottomNav"
                                 Property="IsVisible"
                                 Value="True"/>
+
                     </VisualState.Setters>
+
                 </VisualState>
 
                 <VisualState x:Name="Desktop">
+
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="700"/>
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
+
                         <Setter TargetName="TopNavDesktop"
                                 Property="IsVisible"
                                 Value="True"/>
@@ -238,7 +401,9 @@
                         <Setter TargetName="BottomNav"
                                 Property="IsVisible"
                                 Value="False"/>
+
                     </VisualState.Setters>
+
                 </VisualState>
 
             </VisualStateGroup>

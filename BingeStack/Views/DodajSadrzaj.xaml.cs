@@ -7,6 +7,8 @@ public partial class DodajSadrzaj : ContentPage
     public DodajSadrzaj()
     {
         InitializeComponent();
+        NavigationPage.SetHasNavigationBar(this, false);
+        NavigationPage.SetHasBackButton(this, false);
     }
 
     private void VrstaPromijenjena(object sender, EventArgs e)
@@ -34,7 +36,7 @@ public partial class DodajSadrzaj : ContentPage
             odabraniStatus == "Proèitao sam";
 
         ocjenaSekcija.IsVisible = zavrseno;
-        osvrt.IsVisible = zavrseno;
+        osvrtSekcija.IsVisible = zavrseno;
     }
 
     private async void Spremi_Clicked(object sender, EventArgs e)
@@ -66,8 +68,22 @@ public partial class DodajSadrzaj : ContentPage
 
         App.db.Insert(novi);
 
-        await DisplayAlert("Uspjeh", "Sadržaj spremljen.", "OK");
+        await DisplayAlert("", "Sadržaj uspješno spremljen.", "OK");
 
         await Navigation.PopAsync();
+    }
+
+ private async void Kucica_Clicked(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new Glavna());
+    }
+
+    private void Plus_Clicked(object sender, TappedEventArgs e)
+    {
+    }
+
+    private async void Profil_Clicked(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new Profil());
     }
 }
