@@ -9,37 +9,6 @@ public partial class Prijava : ContentPage
     public Prijava()
     {
         InitializeComponent();
-
-        SizeChanged += Prijava_SizeChanged;
-    }
-
-    private void Prijava_SizeChanged(object sender, EventArgs e)
-    {
-        if (Width < 400)
-        {
-            Grid.SetRow(zaboravljenaLabel, 0);
-            Grid.SetColumn(zaboravljenaLabel, 0);
-            Grid.SetColumnSpan(zaboravljenaLabel, 3);
-
-            zaboravljenaLabel.HorizontalOptions = LayoutOptions.Center;
-
-            Grid.SetRow(zapamtiMeCheckBox, 1);
-            Grid.SetRow(zapamtiMeLabel, 1);
-        }
-        else
-        {
-            Grid.SetRow(zapamtiMeCheckBox, 0);
-            Grid.SetColumn(zapamtiMeCheckBox, 0);
-
-            Grid.SetRow(zapamtiMeLabel, 0);
-            Grid.SetColumn(zapamtiMeLabel, 1);
-
-            Grid.SetRow(zaboravljenaLabel, 0);
-            Grid.SetColumn(zaboravljenaLabel, 2);
-            Grid.SetColumnSpan(zaboravljenaLabel, 1);
-
-            zaboravljenaLabel.HorizontalOptions = LayoutOptions.End;
-        }
     }
 
     private async void prijavaGumb_Clicked(object sender, EventArgs e)
@@ -59,9 +28,9 @@ public partial class Prijava : ContentPage
         string pass = zaporkaPolje.Text.Trim();
 
         var u = App.db.Table<User>()
-            .FirstOrDefault(x =>
-                x.Email == email &&
-                x.Password == pass);
+                      .FirstOrDefault(x =>
+                          x.Email == email &&
+                          x.Password == pass);
 
         if (u != null)
         {

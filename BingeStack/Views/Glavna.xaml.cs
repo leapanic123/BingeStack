@@ -26,8 +26,8 @@ public partial class Glavna : ContentPage
         NavigationPage.SetHasBackButton(this, false);
 
         var sadrzaji = App.db.Table<Sadrzaj>()
-            .Where(x => x.UserId == App.TrenutniKorisnik.UserId)
-            .ToList();
+                             .Where(x => x.UserId == App.TrenutniKorisnik.UserId)
+                             .ToList();
 
         if (sadrzaji.Count == 0)
         {
@@ -116,9 +116,9 @@ public partial class Glavna : ContentPage
             return;
 
         var rezultat = App.db.Table<Sadrzaj>()
-            .Where(x => x.UserId == App.TrenutniKorisnik.UserId)
-            .FirstOrDefault(x =>
-                x.Naziv.ToLower().Contains(tekst.ToLower()));
+                             .Where(x => x.UserId == App.TrenutniKorisnik.UserId)
+                             .FirstOrDefault(x =>
+                                 x.Naziv.ToLower().Contains(tekst.ToLower()));
 
         if (rezultat == null)
         {

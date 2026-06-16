@@ -6,19 +6,19 @@ namespace BingeStack.Views;
 
 public partial class Registracija : ContentPage
 {
-	public Registracija()
-	{
+    public Registracija()
+    {
         InitializeComponent();
-	}
+    }
 
     private void prijavaGumb_Clicked(object sender, EventArgs e)
     {
-        App.Current.MainPage= new Prijava();
+        App.Current.MainPage = new Prijava();
     }
 
     private async void registracijaGumb_Clicked(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty (imPrezPolje.Text) || string.IsNullOrEmpty(emailPolje.Text) || string.IsNullOrEmpty(zaporkaPolje.Text))
+        if (string.IsNullOrEmpty(imPrezPolje.Text) || string.IsNullOrEmpty(emailPolje.Text) || string.IsNullOrEmpty(zaporkaPolje.Text))
         {
             await DisplayAlert("Obavijest", "Molimo ispunite sva obavezna polja.", "U redu");
             return;

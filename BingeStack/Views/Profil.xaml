@@ -13,28 +13,29 @@
     </ContentPage.Background>
 
     <Grid RowDefinitions="Auto,*,Auto">
+
         <Border x:Name="TopNavDesktop"
-         Grid.Row="0"
-         BackgroundColor="White"
-         Padding="20,10"
-         IsVisible="False">
+                Grid.Row="0"
+                BackgroundColor="White"
+                Padding="20,10"
+                IsVisible="False">
 
             <Grid ColumnDefinitions="*,Auto,Auto,Auto"
-           ColumnSpacing="30">
+                  ColumnSpacing="30">
 
                 <HorizontalStackLayout Spacing="10">
 
                     <Image Source="logo_pocetna.png"
-                    HeightRequest="50"
-                    WidthRequest="50"
-                    VerticalOptions="Center"/>
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           VerticalOptions="Center"/>
 
                     <Label Text="BingeStack"
-                    FontSize="22"
-                    FontAttributes="Bold"
-                    FontFamily="TimesNewRoman"
-                    VerticalOptions="Center"
-                    TextColor="Black"/>
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           FontFamily="TimesNewRoman"
+                           VerticalOptions="Center"
+                           TextColor="Black"/>
 
                 </HorizontalStackLayout>
 
@@ -52,38 +53,38 @@
                            Opacity="0.6"/>
 
                     <Label Text="Početna"
-                        FontFamily="TimesNewRoman"
-                        FontAttributes="Bold"
-                        TextColor="Gray"
-                        VerticalOptions="Center"/>
+                           FontFamily="TimesNewRoman"
+                           FontAttributes="Bold"
+                           TextColor="Gray"
+                           VerticalOptions="Center"/>
 
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout Grid.Column="2"
-                                Spacing="8"
-                                Padding="10">
+                                       Spacing="8"
+                                       Padding="10">
 
                     <HorizontalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Plus_Clicked"/>
                     </HorizontalStackLayout.GestureRecognizers>
 
                     <Image Source="plus.png"
-                    HeightRequest="22"
-                    WidthRequest="22"
-                    Opacity="0.6"/>
+                           HeightRequest="22"
+                           WidthRequest="22"
+                           Opacity="0.6"/>
 
                     <Label Text="Dodaj"
-                    FontFamily="TimesNewRoman"
-                    TextColor="Gray"
-                    VerticalOptions="Center"/>
+                           FontFamily="TimesNewRoman"
+                           TextColor="Gray"
+                           VerticalOptions="Center"/>
 
                 </HorizontalStackLayout>
 
                 <Border Grid.Column="3"
-        BackgroundColor="#D6EAF8"
-        StrokeThickness="0"
-        StrokeShape="RoundRectangle 15"
-        Padding="10">
+                        BackgroundColor="#D6EAF8"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 15"
+                        Padding="10">
 
                     <HorizontalStackLayout Spacing="8">
 
@@ -92,15 +93,15 @@
                         </HorizontalStackLayout.GestureRecognizers>
 
                         <Image Source="profil.png"
-               HeightRequest="22"
-               WidthRequest="22"
-               Opacity="1"/>
+                               HeightRequest="22"
+                               WidthRequest="22"
+                               Opacity="1"/>
 
                         <Label Text="Profil"
-               FontFamily="TimesNewRoman"
-               FontAttributes="Bold"
-               TextColor="#4A90E2"
-               VerticalOptions="Center"/>
+                               FontFamily="TimesNewRoman"
+                               FontAttributes="Bold"
+                               TextColor="#4A90E2"
+                               VerticalOptions="Center"/>
 
                     </HorizontalStackLayout>
 
@@ -132,13 +133,7 @@
                        Text="Korisnik"
                        FontSize="24"
                        FontAttributes="Bold"
-                        FontFamily="TimesNewRoman"
-                       HorizontalOptions="Center"
-                       TextColor="Black"/>
-
-                <Label x:Name="email"
-                       Text="email@email.com"
-                       FontSize="14"
+                       FontFamily="TimesNewRoman"
                        HorizontalOptions="Center"
                        TextColor="Black"/>
 
@@ -156,7 +151,7 @@
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center"/>
                             <Label Text="Filmovi"
-                                    FontFamily="TimesNewRoman"
+                                   FontFamily="TimesNewRoman"
                                    HorizontalOptions="Center"/>
                         </VerticalStackLayout>
 
@@ -167,7 +162,7 @@
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center"/>
                             <Label Text="Serije"
-                                    FontFamily="TimesNewRoman"
+                                   FontFamily="TimesNewRoman"
                                    HorizontalOptions="Center"/>
                         </VerticalStackLayout>
 
@@ -178,7 +173,7 @@
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center"/>
                             <Label Text="Knjige"
-                                    FontFamily="TimesNewRoman"
+                                   FontFamily="TimesNewRoman"
                                    HorizontalOptions="Center"/>
                         </VerticalStackLayout>
 
@@ -192,60 +187,112 @@
                     <VerticalStackLayout Padding="15"
                                          Spacing="8">
 
-                        <Label Text="Aktivnosti"
+                        <Label Text="Podaci o profilu"
                                FontSize="18"
-                                FontFamily="TimesNewRoman"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold"
+                               FontFamily="TimesNewRoman"
+                               TextColor="Black"/>
 
-                        <Label x:Name="filmAktivnost"
-                                FontFamily="TimesNewRoman"
-                               Text="🎬 Nema dodanih filmova"/>
+                        <VerticalStackLayout Padding="15"
+                                             Spacing="8">
 
-                        <Label x:Name="serijaAktivnost"
-                                FontFamily="TimesNewRoman"
-                               Text="📺 Nema dodanih serija"/>
+                            <HorizontalStackLayout Spacing="5">
+                                <Label Text="E-mail:"
+                                       FontSize="16"
+                                       FontFamily="TimesNewRoman"
+                                       TextColor="Black"/>
 
-                        <Label x:Name="knjigaAktivnost"
-                                FontFamily="TimesNewRoman"
-                               Text="📚 Nema dodanih knjiga"/>
+                                <Label x:Name="email"
+                                       Text="{Binding Email}"
+                                       FontSize="16"
+                                       FontFamily="TimesNewRoman"
+                                       TextColor="Black"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="5">
+                                <Label Text="Status:"
+                                       FontSize="16"
+                                       FontFamily="TimesNewRoman"
+                                       TextColor="Black"/>
+
+                                <Label Text="Aktivan korisnik"
+                                       FontSize="16"
+                                       FontFamily="TimesNewRoman"
+                                       TextColor="Green"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="5">
+                                <Label Text="Zadnja aktivnost:"
+                                       FontSize="16"
+                                       FontFamily="TimesNewRoman"
+                                       TextColor="Black"/>
+
+                                <Label x:Name="datumVrijeme"
+                                       FontSize="16"
+                                       FontFamily="TimesNewRoman"
+                                       TextColor="Black"/>
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
 
                     </VerticalStackLayout>
                 </Frame>
 
-                <Button Text="Uredi profil"
-                         FontFamily="TimesNewRoman"
-                        BackgroundColor="#D6EAF8"
-                        TextColor="#4A90E2"
-                        CornerRadius="15"
-                        Clicked="UrediProfil_Clicked"/>
-
                 <Button Text="Odjava"
                         BackgroundColor="#4A90E2"
                         TextColor="White"
-                         FontFamily="TimesNewRoman"
+                        FontFamily="TimesNewRoman"
                         CornerRadius="15"
+                        FontSize="16"
                         Clicked="Odjava_Clicked"/>
+
+                <Button Text="Obriši profil"
+                        BackgroundColor="#FF4D4D"
+                        TextColor="White"
+                        CornerRadius="15"
+                        FontSize="16"
+                        FontFamily="TimesNewRoman"
+                        Clicked="ObrisiProfil_Clicked"/>
+
+                <Frame CornerRadius="20"
+                       BackgroundColor="#80FFFFFF"
+                       HasShadow="False">
+
+                    <VerticalStackLayout>
+
+                        <Label Text="BingeStack"
+                               FontFamily="TimesNewRoman"
+                               FontAttributes="Bold"/>
+
+                        <Label Text="Verzija: 1.0.0"
+                               FontSize="14"
+                               FontFamily="TimesNewRoman"
+                               TextColor="Gray"/>
+
+                    </VerticalStackLayout>
+
+                </Frame>
 
             </VerticalStackLayout>
 
         </ScrollView>
 
         <Border x:Name="BottomNav"
-        Grid.Row="2"
-        BackgroundColor="White"
-        Padding="20,10"
-        HeightRequest="60"
-        IsVisible="False">
+                Grid.Row="2"
+                BackgroundColor="White"
+                Padding="20,10"
+                HeightRequest="60"
+                IsVisible="False">
 
             <Grid ColumnDefinitions="*,*,*">
 
                 <Image Grid.Column="0"
-               Source="kucica.png"
-               HeightRequest="24"
-                         Opacity="0.6"
-               WidthRequest="24"
-               HorizontalOptions="Center"
-               VerticalOptions="Center">
+                       Source="kucica.png"
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       Opacity="0.6"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
 
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Kucica_Clicked"/>
@@ -254,12 +301,12 @@
                 </Image>
 
                 <Image Grid.Column="1"
-               Source="plus.png"
-               HeightRequest="24"
-               WidthRequest="24"
-               HorizontalOptions="Center"
-                         Opacity="0.6"
-               VerticalOptions="Center">
+                       Source="plus.png"
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       Opacity="0.6"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
 
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Plus_Clicked"/>
@@ -268,16 +315,14 @@
                 </Image>
 
                 <Border Grid.Column="2"
-                BackgroundColor="#D6EAF8"
-                StrokeThickness="0"
-                StrokeShape="RoundRectangle 100"
-                Padding="6"
-                HorizontalOptions="Center"
-                VerticalOptions="Center">
+                        BackgroundColor="#D6EAF8"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 100">
 
                     <Image Source="profil.png"
-                   HeightRequest="24"
-                   WidthRequest="24"/>
+                           HeightRequest="24"
+                           WidthRequest="24"/>
+
                 </Border>
 
             </Grid>

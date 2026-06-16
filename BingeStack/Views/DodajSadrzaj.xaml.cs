@@ -73,7 +73,7 @@ public partial class DodajSadrzaj : ContentPage
         await Navigation.PopAsync();
     }
 
- private async void Kucica_Clicked(object sender, TappedEventArgs e)
+    private async void Kucica_Clicked(object sender, TappedEventArgs e)
     {
         await Navigation.PushAsync(new Glavna());
     }

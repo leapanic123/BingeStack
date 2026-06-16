@@ -17,6 +17,14 @@ public partial class Profil : ContentPage
         NavigationPage.SetHasBackButton(this, false);
 
         UcitajStatistiku();
+
+        if (App.TrenutniKorisnik != null)
+        {
+            ime.Text = App.TrenutniKorisnik.Name;
+            email.Text = App.TrenutniKorisnik.Email;
+        }
+
+        datumVrijeme.Text = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
     }
 
     private void UcitajStatistiku()
@@ -27,26 +35,11 @@ public partial class Profil : ContentPage
         var userId = App.TrenutniKorisnik.UserId;
 
         var q = App.db.Table<Sadrzaj>()
-                        .Where(x => x.UserId == userId);
+                      .Where(x => x.UserId == userId);
 
         filmovi.Text = q.Count(x => x.Vrsta == "Film").ToString();
         serije.Text = q.Count(x => x.Vrsta == "Serija").ToString();
         knjige.Text = q.Count(x => x.Vrsta == "Knjiga").ToString();
-
-        ime.Text = App.TrenutniKorisnik.Name;
-        email.Text = App.TrenutniKorisnik.Email;
-
-        filmAktivnost.Text = q.Any(x => x.Vrsta == "Film")
-? " Ima dodanih filmova"
-: " Nema dodanih filmova";
-
-        serijaAktivnost.Text = q.Any(x => x.Vrsta == "Serija")
-            ? " Ima dodanih serija"
-            : " Nema dodanih serija";
-
-        knjigaAktivnost.Text = q.Any(x => x.Vrsta == "Knjiga")
-            ? " Ima dodanih knjiga"
-            : " Nema dodanih knjiga";
     }
 
     private void Kucica_Clicked(object sender, EventArgs e)
@@ -61,7 +54,6 @@ public partial class Profil : ContentPage
 
     private async void Profil_Clicked(object sender, EventArgs e)
     {
-
     }
 
     private async void UrediProfil_Clicked(object sender, EventArgs e)
@@ -83,5 +75,52 @@ public partial class Profil : ContentPage
         App.TrenutniKorisnik = null;
 
         Application.Current.MainPage = new NavigationPage(new Pocetna());
+    }
+
+    private async void ObrisiProfil_Clicked(object sender, EventArgs e)
+    {
+        if (App.TrenutniKorisnik == null)
+            return;
+
+        bool potvrda = await DisplayAlert(
+            "Brisanje profila",
+            "Jeste li sigurni da želite obrisati profil? Ova radnja je nepovratna.",
+            "DA",
+            "NE");
+
+        if (!potvrda)
+            return;
+
+        try
+        {
+            var userId = App.TrenutniKorisnik.UserId;
+
+            var sadrzaji = App.db.Table<Sadrzaj>()
+                                 .Where(x => x.UserId == userId)
+                                 .ToList();
+
+            foreach (var s in sadrzaji)
+            {
+                App.db.Delete(s);
+            }
+
+            var user = App.db.Table<User>()
+                             .FirstOrDefault(x => x.UserId == userId);
+
+            if (user != null)
+            {
+                App.db.Delete(user);
+            }
+
+            App.TrenutniKorisnik = null;
+
+            await DisplayAlert("Obrisano", "Profil je uspješno obrisan.", "OK");
+
+            Application.Current.MainPage = new Pocetna();
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Greška", ex.Message, "OK");
+        }
     }
 }

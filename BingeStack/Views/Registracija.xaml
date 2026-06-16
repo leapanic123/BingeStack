@@ -128,7 +128,7 @@
                     <HorizontalStackLayout HorizontalOptions="Center"
                                            Spacing="3">
 
-                        <Label Text="Imaš račun?"
+                        <Label Text="Imate račun?"
                                FontSize="11"
                                TextColor="Black"
                                FontFamily="TimesNewRoman"/>

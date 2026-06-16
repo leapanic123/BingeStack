@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BingeStack.Views.Prijava"
@@ -22,10 +23,10 @@
                    MaximumWidthRequest="150"/>
 
             <Label Text="Dobrodošli!"
-                           HorizontalTextAlignment="Center"
-                           FontSize="20"
-                           FontAttributes="Bold"
-                           FontFamily="TimesNewRoman"/>
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   FontFamily="TimesNewRoman"/>
 
             <Border BackgroundColor="#80FFFFFF"
                     StrokeThickness="0"
@@ -60,38 +61,24 @@
                     </Grid>
 
                     <Grid x:Name="OpcijeGrid"
-      ColumnDefinitions="Auto,*,Auto"
-      RowDefinitions="Auto,Auto">
+                          ColumnDefinitions="Auto,*,Auto"
+                          RowDefinitions="Auto,Auto">
 
                         <Label x:Name="zaboravljenaLabel"
-           Text="Zaboravili ste zaporku?"
-           FontSize="12"
-           FontFamily="TimesNewRoman"
-           TextDecorations="Underline"
-           HorizontalOptions="End"
-           Grid.Row="0"
-           Grid.Column="0"
-           Grid.ColumnSpan="3">
+                               Text="Zaboravili ste zaporku?"
+                               FontSize="12"
+                               FontFamily="TimesNewRoman"
+                               TextDecorations="Underline"
+                               HorizontalOptions="End"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3">
 
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ZaboravljenaZaporka_Tapped"/>
                             </Label.GestureRecognizers>
 
                         </Label>
-
-                        <CheckBox x:Name="zapamtiMeCheckBox"
-              Color="Black"
-              Grid.Row="0"
-              Grid.Column="0"/>
-
-                        <Label x:Name="zapamtiMeLabel"
-           Text="Zapamti me"
-           FontSize="12"
-           LineBreakMode="NoWrap"
-           FontFamily="TimesNewRoman"                    
-           VerticalOptions="Center"
-           Grid.Row="0"
-           Grid.Column="1"/>
 
                     </Grid>
 
@@ -107,18 +94,18 @@
                             Clicked="prijavaGumb_Clicked"/>
 
                     <HorizontalStackLayout HorizontalOptions="Center"
-                       Spacing="3">
+                                           Spacing="3">
 
-                        <Label Text="Nemaš račun?"
-           FontSize="11"
-           TextColor="Black"
-           FontFamily="TimesNewRoman"/>
+                        <Label Text="Nemate račun?"
+                               FontSize="11"
+                               TextColor="Black"
+                               FontFamily="TimesNewRoman"/>
 
                         <Label Text="Registracija"
-           TextColor="Black"
-           FontSize="11"
-           FontFamily="TimesNewRoman"
-           TextDecorations="Underline">
+                               FontSize="11"
+                               TextColor="Black"
+                               FontFamily="TimesNewRoman"
+                               TextDecorations="Underline">
 
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="registracijaGumb_Clicked"/>

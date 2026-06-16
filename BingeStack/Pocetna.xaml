@@ -13,7 +13,7 @@
             <GradientStop Color="#D6EAF8"
                           Offset="1"/>
         </LinearGradientBrush>
-        
+
     </ContentPage.Background>
     <ScrollView>
 
@@ -50,14 +50,14 @@
                         <Label Text="Pratite filmove, serije i knjige na jednom mjestu."
                            HorizontalTextAlignment="Center"
                            FontFamily="TimesNewRoman"
-                           FontSize="16"
+                           FontSize="18"
                            TextColor="#333"
                            LineBreakMode="WordWrap"/>
 
                         <Label Text="Organizirajte sadržaj koji želite pogledati ili pročitati, ocjenjujte ga i vodite vlastitu evidenciju."
                            HorizontalTextAlignment="Center"
                            FontFamily="TimesNewRoman"
-                           FontSize="13"
+                           FontSize="16"
                            TextColor="#666"
                            LineBreakMode="WordWrap"/>
 
@@ -83,4 +83,4 @@
         </Grid>
     </ScrollView>
 
-</ContentPage> 
+</ContentPage>

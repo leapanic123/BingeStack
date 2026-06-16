@@ -8,17 +8,18 @@
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0"
                              EndPoint="0,1">
-            <GradientStop Color="#4A90E2" Offset="0"/>
-            <GradientStop Color="#D6EAF8" Offset="1"/>
+            <GradientStop Color="#4A90E2" Offset="0" />
+            <GradientStop Color="#D6EAF8" Offset="1" />
         </LinearGradientBrush>
     </ContentPage.Background>
 
     <Grid RowDefinitions="Auto,*,Auto">
-        
+
         <Border x:Name="TopNavDesktop"
                 Grid.Row="0"
                 BackgroundColor="White"
-                Padding="20,10">
+                Padding="20,10"
+                IsVisible="False">
 
             <Grid ColumnDefinitions="*,Auto,Auto,Auto"
                   ColumnSpacing="30">
@@ -28,34 +29,41 @@
                     <Image Source="logo_pocetna.png"
                            HeightRequest="50"
                            WidthRequest="50"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center" />
 
                     <Label Text="BingeStack"
                            FontSize="22"
                            FontAttributes="Bold"
                            FontFamily="TimesNewRoman"
                            VerticalOptions="Center"
-                           TextColor="Black"/>
+                           TextColor="Black" />
 
                 </HorizontalStackLayout>
-                
-                <HorizontalStackLayout Grid.Column="1"
-                                       Spacing="8"
-                                       Padding="10">
-                    <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Kucica_Clicked"/>
-                    </HorizontalStackLayout.GestureRecognizers>
 
-                    <Image Source="kucica.png"
-                           HeightRequest="22"
-                           WidthRequest="22"
-                           Opacity="0.6"/>
+                <Border Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        StrokeThickness="0">
 
-                    <Label Text="Početna"
-                           FontFamily="TimesNewRoman"
-                           TextColor="Gray"
-                           VerticalOptions="Center"/>
-                </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="8"
+                                           Padding="10">
+
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Kucica_Clicked" />
+                        </HorizontalStackLayout.GestureRecognizers>
+
+                        <Image Source="kucica.png"
+                               HeightRequest="22"
+                               WidthRequest="22"
+                               Opacity="0.6" />
+
+                        <Label Text="Početna"
+                               FontFamily="TimesNewRoman"
+                               VerticalOptions="Center"
+                               TextColor="Gray" />
+
+                    </HorizontalStackLayout>
+
+                </Border>
 
                 <Border Grid.Column="2"
                         BackgroundColor="#D6EAF8"
@@ -66,40 +74,47 @@
                                            Padding="10">
 
                         <HorizontalStackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Plus_Clicked"/>
+                            <TapGestureRecognizer Tapped="Plus_Clicked" />
                         </HorizontalStackLayout.GestureRecognizers>
 
                         <Image Source="plus.png"
                                HeightRequest="22"
-                               WidthRequest="22"/>
+                               WidthRequest="22" />
 
                         <Label Text="Dodaj"
                                FontFamily="TimesNewRoman"
                                FontAttributes="Bold"
-                               TextColor="#4A90E2"
-                               VerticalOptions="Center"/>
+                               VerticalOptions="Center"
+                               TextColor="#4A90E2" />
+
                     </HorizontalStackLayout>
 
                 </Border>
-                
-                <HorizontalStackLayout Grid.Column="3"
-                                       Spacing="8"
-                                       Padding="10">
 
-                    <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Profil_Clicked"/>
-                    </HorizontalStackLayout.GestureRecognizers>
+                <Border Grid.Column="3"
+                        BackgroundColor="Transparent"
+                        StrokeThickness="0">
 
-                    <Image Source="profil.png"
-                           HeightRequest="22"
-                           WidthRequest="22"
-                           Opacity="0.6"/>
+                    <HorizontalStackLayout Spacing="8"
+                                           Padding="10">
 
-                    <Label Text="Profil"
-                           FontFamily="TimesNewRoman"
-                           TextColor="Gray"
-                           VerticalOptions="Center"/>
-                </HorizontalStackLayout>
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Profil_Clicked" />
+                        </HorizontalStackLayout.GestureRecognizers>
+
+                        <Image Source="profil.png"
+                               HeightRequest="22"
+                               WidthRequest="22"
+                               Opacity="0.6" />
+
+                        <Label Text="Profil"
+                               FontFamily="TimesNewRoman"
+                               VerticalOptions="Center"
+                               TextColor="Gray" />
+
+                    </HorizontalStackLayout>
+
+                </Border>
 
             </Grid>
 
@@ -111,6 +126,25 @@
             <VerticalStackLayout Padding="20"
                                  Spacing="20">
 
+                <VerticalStackLayout x:Name="MobileHeader"
+                                     IsVisible="False"
+                                     HorizontalOptions="Center"
+                                     Spacing="0">
+
+                    <Image Source="logo_pocetna.png"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="BingeStack"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           FontFamily="TimesNewRoman"
+                           TextColor="Black"
+                           HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+
                 <Border BackgroundColor="#80FFFFFF"
                         StrokeThickness="0"
                         StrokeShape="RoundRectangle 25"
@@ -119,16 +153,10 @@
                     <VerticalStackLayout Spacing="18">
 
                         <Label Text="Dodaj novi sadržaj"
-                               FontSize="24"
+                               FontSize="30"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"
-                               FontFamily="TimesNewRoman"/>
-
-                        <Label Text="Dodaj film, seriju ili knjigu u svoju kolekciju."
-                               HorizontalTextAlignment="Center"
-                               FontSize="18"
-                               TextColor="#555"
-                               FontFamily="TimesNewRoman"/>
+                               FontFamily="TimesNewRoman" />
 
                         <Picker x:Name="vrsta"
                                 Title="Vrsta sadržaja"
@@ -140,29 +168,28 @@
                                 <x:String>Serija</x:String>
                                 <x:String>Knjiga</x:String>
                             </Picker.Items>
+
                         </Picker>
 
                         <Entry x:Name="naziv"
                                Placeholder="Naziv sadržaja"
-                               PlaceholderColor="DimGrey"
-                               FontFamily="TimesNewRoman"
-                               TextColor="#555"/>
+                               PlaceholderColor="Grey"
+                               FontFamily="TimesNewRoman" />
 
                         <Picker x:Name="status"
                                 Title="Status"
                                 FontFamily="TimesNewRoman"
-                                SelectedIndexChanged="StatusPromijenjen"/>
+                                SelectedIndexChanged="StatusPromijenjen" />
 
                         <VerticalStackLayout x:Name="ocjenaSekcija"
-                                             IsVisible="False"
-                                             Spacing="8">
+                                             IsVisible="False">
 
                             <Label Text="Ocjena"
-                                   FontAttributes="Bold"
-                                   FontFamily="TimesNewRoman"/>
+                                   FontFamily="TimesNewRoman" />
 
                             <Picker x:Name="ocjena"
                                     FontFamily="TimesNewRoman">
+
                                 <Picker.Items>
                                     <x:String>1</x:String>
                                     <x:String>2</x:String>
@@ -170,34 +197,31 @@
                                     <x:String>4</x:String>
                                     <x:String>5</x:String>
                                 </Picker.Items>
+
                             </Picker>
 
                         </VerticalStackLayout>
 
                         <VerticalStackLayout x:Name="osvrtSekcija"
-                                             Spacing="8"
                                              IsVisible="False">
 
                             <Label Text="Osvrt"
-                                   FontAttributes="Bold"
-                                FontFamily="TimesNewRoman"/>
+                                   FontFamily="TimesNewRoman" />
 
                             <Editor x:Name="osvrt"
-                                     Placeholder="Napiši svoj osvrt..."
-                                     AutoSize="TextChanges"
-                                     HeightRequest="120"
-                                     FontFamily="TimesNewRoman"/>
+                                    AutoSize="TextChanges"
+                                    HeightRequest="120" />
 
                         </VerticalStackLayout>
 
                         <Button Text="SPREMI"
                                 Clicked="Spremi_Clicked"
                                 HeightRequest="55"
+                                FontSize="20"
                                 CornerRadius="20"
-                                FontAttributes="Bold"
-                                FontFamily="TimesNewRoman"
                                 BackgroundColor="#4A90E2"
-                                TextColor="White"/>
+                                FontFamily="TimesNewRoman"
+                                TextColor="White" />
 
                     </VerticalStackLayout>
 
@@ -222,7 +246,7 @@
                        Opacity="0.6">
 
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Kucica_Clicked"/>
+                        <TapGestureRecognizer Tapped="Kucica_Clicked" />
                     </Image.GestureRecognizers>
 
                 </Image>
@@ -230,16 +254,14 @@
                 <Border Grid.Column="1"
                         BackgroundColor="#D6EAF8"
                         StrokeThickness="0"
-                        StrokeShape="RoundRectangle 100"
-                        Padding="6"
-                        HorizontalOptions="Center">
+                        StrokeShape="RoundRectangle 100">
 
                     <Image Source="plus.png"
                            HeightRequest="24"
                            WidthRequest="24">
 
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Plus_Clicked"/>
+                            <TapGestureRecognizer Tapped="Plus_Clicked" />
                         </Image.GestureRecognizers>
 
                     </Image>
@@ -253,7 +275,7 @@
                        Opacity="0.6">
 
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Profil_Clicked"/>
+                        <TapGestureRecognizer Tapped="Profil_Clicked" />
                     </Image.GestureRecognizers>
 
                 </Image>
@@ -261,38 +283,44 @@
             </Grid>
 
         </Border>
-        
+
         <VisualStateManager.VisualStateGroups>
 
             <VisualStateGroup>
 
                 <VisualState x:Name="Mobile">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
+                        <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
                         <Setter TargetName="TopNavDesktop"
                                 Property="IsVisible"
-                                Value="False"/>
+                                Value="False" />
+                        <Setter TargetName="MobileHeader"
+                                Property="IsVisible"
+                                Value="True" />
                         <Setter TargetName="BottomNav"
                                 Property="IsVisible"
-                                Value="True"/>
+                                Value="True" />
                     </VisualState.Setters>
                 </VisualState>
 
                 <VisualState x:Name="Desktop">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700"/>
+                        <AdaptiveTrigger MinWindowWidth="700" />
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
                         <Setter TargetName="TopNavDesktop"
                                 Property="IsVisible"
-                                Value="True"/>
+                                Value="True" />
+                        <Setter TargetName="MobileHeader"
+                                Property="IsVisible"
+                                Value="False" />
                         <Setter TargetName="BottomNav"
                                 Property="IsVisible"
-                                Value="False"/>
+                                Value="False" />
                     </VisualState.Setters>
                 </VisualState>
 
